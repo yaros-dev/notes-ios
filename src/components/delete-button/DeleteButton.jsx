@@ -1,9 +1,10 @@
-import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import IconButton from "@mui/material/IconButton";
-const AddButton = () => {
+import DeleteIcon from "@mui/icons-material/Delete";
+
+const DeleteButton = (props) => {
   return (
     <IconButton
-      aria-label="edit"
+      aria-label="delete"
       style={{
         border: "1px solid #6a6a6a",
         borderRadius: "4px",
@@ -11,9 +12,9 @@ const AddButton = () => {
         padding: "0 10px",
       }}
     >
-      <AddOutlinedIcon sx={{ fill: "#6a6a6a" }} />
+      <DeleteIcon sx={{ fill: "#6a6a6a" }} />
     </IconButton>
   );
 };
 
-export default AddButton;
+export default DeleteButton;

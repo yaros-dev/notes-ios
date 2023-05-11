@@ -1,15 +1,19 @@
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import WorkSpace from "../work-space/WorkSpace";
+import IndexedDB from "../../api/IndexedDB";
+import Main from "../main/Main";
+import background from "../../assets/mac-os.jpg";
 import "./app.scss";
 
 function App() {
   return (
-    <Container maxWidth="lg">
-      <Box sx={{ bgcolor: "#cfe8fc", height: "100vh" }}>
-        <WorkSpace />
-      </Box>
-    </Container>
+    <div
+      style={{
+        backgroundImage: `url(${background})`,
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+      }}
+    >
+      <Main />
+    </div>
   );
 }
 

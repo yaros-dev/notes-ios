@@ -1,0 +1,39 @@
+.work-space {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.wmde-markdown-var.w-md-editor {
+  border-radius: 0px !important;
+  border-right: 1px solid #dfdfdf;
+  border-left: 1px solid #dfdfdf;
+  box-shadow: none !important;
+}
+
+.wmde-markdown-var.w-md-editor.w-md-editor-show-edit {
+  min-height: 100vh;
+}
+
+.w-md-editor-text {
+  padding: 10px 30px 0 30px;
+}
+
+.w-md-editor-text-pre > code,
+.w-md-editor-text-input {
+  font-size: 14px !important;
+  line-height: 22px !important;
+}
+
+.w-md-editor-area {
+  background: #f9f9f7;
+}
+
+.work-space__clock {
+  color: #afafaf;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  font-size: 12px;
+  border-right: 1px solid #dfdfdf;
+  border-left: 1px solid #dfdfdf;
+}
