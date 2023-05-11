@@ -5,7 +5,19 @@ import Clock from "../clock/Clock";
 import "./workSpace.scss";
 
 const WorkSpace = () => {
-  const [value, setValue] = useState(`selectedNote.content`);
+  const data = {
+    id: "fsdsdf3432",
+    name: "Tasks",
+    content: "",
+  };
+  const [value, setValue] = useState(data);
+
+  const updateValue = (newContent) => {
+    setValue((prevValue) => {
+      return { ...prevValue, content: newContent };
+    });
+  };
+
   return (
     <div className="work-space">
       <SideBar style={{ width: "300px" }} />
@@ -15,9 +27,9 @@ const WorkSpace = () => {
         </div>
         <MDEditor
           highlightEnable={false}
-          value={value}
+          value={value.content}
           hideToolbar="true"
-          onChange={(newValue = "") => setValue(newValue)}
+          onChange={updateValue}
           preview="edit"
           textareaProps={{
             placeholder: "Please enter the text",

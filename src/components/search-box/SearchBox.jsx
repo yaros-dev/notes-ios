@@ -1,27 +1,21 @@
 import { useContext } from "react";
 import { styled, alpha } from "@mui/material/styles";
-import TextField from "@mui/material/TextField";
-
-const Search = styled("div")(({ theme }) => ({
-  position: "relative",
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginLeft: 0,
-  width: "100%",
-  [theme.breakpoints.up("sm")]: {
-    marginLeft: theme.spacing(1),
-    width: "auto",
-  },
-}));
+import Input from "@mui/material/Input";
 
 function SearchBox() {
   return (
-    <Search sx={{ backgroundColor: "#fff", height: "40px" }}>
-      <TextField id="standard-search" type="search" />
-    </Search>
+    <Input
+      type="text"
+      disableUnderline={true}
+      placeholder={`Search...`}
+      style={{
+        border: "1px solid #b2b4b2",
+        borderRadius: "4px",
+        backgroundColor: "#f5f5f5",
+        padding: "0 10px",
+        fontSize: "12px",
+      }}
+    />
   );
 }
 

@@ -1,18 +1,18 @@
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
-import IconButton from "@mui/material/IconButton";
+import Button from "@mui/material/Button";
 const AddButton = () => {
   return (
-    <IconButton
+    <Button
       aria-label="edit"
       style={{
-        border: "1px solid #6a6a6a",
+        border: "1px solid #b2b4b2",
         borderRadius: "4px",
         backgroundColor: "#f5f5f5",
         padding: "0 10px",
       }}
     >
       <AddOutlinedIcon sx={{ fill: "#6a6a6a" }} />
-    </IconButton>
+    </Button>
   );
 };
 

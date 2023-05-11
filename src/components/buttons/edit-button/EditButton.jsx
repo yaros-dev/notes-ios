@@ -1,19 +1,18 @@
 import EditNoteIcon from "@mui/icons-material/EditNote";
-import IconButton from "@mui/material/IconButton";
+import Button from "@mui/material/Button";
 const EditButton = (props) => {
   return (
-    <IconButton
+    <Button
       aria-label="edit"
-      {...props}
       style={{
-        border: "1px solid #6a6a6a",
+        border: "1px solid #b2b4b2",
         borderRadius: "4px",
         backgroundColor: "#f5f5f5",
         padding: "0 10px",
       }}
     >
       <EditNoteIcon sx={{ fill: "#6a6a6a" }} />
-    </IconButton>
+    </Button>
   );
 };
 
