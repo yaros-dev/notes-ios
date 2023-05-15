@@ -1,10 +1,13 @@
 import { useContext } from "react";
-import { styled, alpha } from "@mui/material/styles";
 import Input from "@mui/material/Input";
+import { NotesContext } from "../../context";
 
 function SearchBox() {
+  const { handleFilter } = useContext(NotesContext);
+
   return (
     <Input
+      onChange={handleFilter}
       type="text"
       disableUnderline={true}
       placeholder={`Search...`}
@@ -14,9 +17,9 @@ function SearchBox() {
         backgroundColor: "#f5f5f5",
         padding: "0 10px",
         fontSize: "12px",
+        marginLeft: "5px",
       }}
     />
   );
 }
-
 export default SearchBox;

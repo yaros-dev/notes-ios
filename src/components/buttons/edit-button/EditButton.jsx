@@ -1,8 +1,13 @@
 import EditNoteIcon from "@mui/icons-material/EditNote";
 import Button from "@mui/material/Button";
-const EditButton = (props) => {
+import { NotesContext } from "../../../context";
+import { useContext } from "react";
+const EditButton = () => {
+  const { editNote, activeNoteId } = useContext(NotesContext);
   return (
     <Button
+      disabled={!activeNoteId}
+      onClick={editNote}
       aria-label="edit"
       style={{
         border: "1px solid #b2b4b2",
@@ -11,7 +16,7 @@ const EditButton = (props) => {
         padding: "0 10px",
       }}
     >
-      <EditNoteIcon sx={{ fill: "#6a6a6a" }} />
+      <EditNoteIcon sx={{ fill: !activeNoteId ? "#6a6a6a61" : "#6a6a6a" }} />
     </Button>
   );
 };

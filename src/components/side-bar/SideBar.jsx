@@ -1,8 +1,12 @@
-import ListItem from "../list-Item/ListItem";
 import "./sideBar.scss";
-
-const SideBar = () => {
-  return <ListItem style={{ width: "100%" }} />;
+import NoteList from "../note-list/NoteList";
+const SideBar = ({ activeNote, handleListItemClick }) => {
+  return (
+    <NoteList
+      activeNote={activeNote}
+      handleListItemClick={handleListItemClick}
+    />
+  );
 };
 
 export default SideBar;

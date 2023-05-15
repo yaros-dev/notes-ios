@@ -2,7 +2,6 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import WorkSpace from "../work-space/WorkSpace";
 import Header from "../header/Header";
-
 const Main = () => {
   return (
     <>

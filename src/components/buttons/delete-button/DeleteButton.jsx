@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-const DeleteButton = (props) => {
+import { NotesContext } from "../../../context";
+
+const DeleteButton = () => {
+  const { handleNoteEditor, selectedNote, activeNoteId } =
+    useContext(NotesContext);
   const [open, setOpen] = useState(false);
   const handleOpenModal = () => {
     setOpen(true);
@@ -14,9 +16,16 @@ const DeleteButton = (props) => {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const deleteNote = () => {
+    handleNoteEditor("", "delete", selectedNote.id);
+    setOpen(false);
+  };
+
   return (
     <>
       <Button
+        disabled={!activeNoteId}
         aria-label="delete"
         style={{
           border: "1px solid #b2b4b2",
@@ -26,26 +35,42 @@ const DeleteButton = (props) => {
         }}
         onClick={handleOpenModal}
       >
-        <DeleteIcon sx={{ fill: "#6a6a6a" }} />
+        <DeleteIcon sx={{ fill: !activeNoteId ? "#6a6a6a61" : "#6a6a6a" }} />
       </Button>
       <Dialog
         open={open}
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
+        style={{ fontFamily: "inherit" }}
       >
-        <DialogTitle id="alert-dialog-title">
-          {"Use Google's location service?"}
-        </DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            Let Google help apps determine location. This means sending
-            anonymous location data to Google, even when no apps are running.
-          </DialogContentText>
-        </DialogContent>
+        <DialogTitle
+          id="alert-dialog-title"
+          sx={{ fontFamily: "inherit", fontSize: "16px", color: "#1D1D1D" }}
+        >{`Видалити нотатку? ${"New note"} `}</DialogTitle>
+
         <DialogActions>
-          <Button onClick={handleClose}>Cкасувати</Button>
-          <Button onClick={handleClose} autoFocus>
+          <Button
+            onClick={handleClose}
+            sx={{
+              fontFamily: "inherit",
+              fontSize: "12px",
+              color: "#1D1D1D",
+              background: "#d6d6d6",
+            }}
+          >
+            Cкасувати
+          </Button>
+          <Button
+            onClick={deleteNote}
+            sx={{
+              fontFamily: "inherit",
+              fontSize: "12px",
+              color: "#1D1D1D",
+              background: "#d6d6d6",
+            }}
+            autoFocus
+          >
             Видалити
           </Button>
         </DialogActions>
